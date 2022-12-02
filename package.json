@@ -1,0 +1,35 @@
+{
+  "name": "cypress-demo-testing",
+  "version": "1.0.0",
+  "description": "Cypress tests",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/osmo-tester/Cypress-demo-testing.git"
+  },
+  "keywords": [
+    "automation",
+    "browser",
+    "cypress",
+    "cypress.io",
+    "e2e",
+    "end-to-end",
+    "integration",
+    "runner",
+    "test",
+    "testing"
+  ],
+  "author": "Oleg Smolyakov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/osmo-tester/Cypress-demo-testing/issues"
+  },
+  "homepage": "https://github.com/osmo-tester/Cypress-demo-testing#readme",
+  "devDependencies": {
+    "cypress": "^11.2.0"
+  }
+}
