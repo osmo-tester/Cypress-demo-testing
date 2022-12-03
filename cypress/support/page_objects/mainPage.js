@@ -13,6 +13,15 @@ export class MainPage {
   openCart() {
     cy.contains('Checkout').click()
   };
+
+  confirmCheckoutInfo() {
+    cy.contains('.btn', 'Checkout')
+      // .should('contain', '1 ($ 2399)');
+      .invoke('text')
+      .then($txt1 => {
+        expect($txt1).to.equal($txt1)
+      })
+  };
 };
 
 export const onMainPage = new MainPage();

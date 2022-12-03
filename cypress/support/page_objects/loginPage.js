@@ -38,6 +38,9 @@ export class LoginPage {
       .should('be.visible')
   };
 
-
+  confirmRegistration() {
+    cy.contains('The email address is already in use by another account.')
+      .should('be.visible');
+  };
 };
 export const onLoginPage = new LoginPage();

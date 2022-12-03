@@ -24,5 +24,10 @@ export class CheckoutPage {
       .first()
       .click();
   };
+
+  confirmSuccessfullOrder() {
+    cy.contains('Your order has been successfully processed!')
+      .should('be.visible');
+  };
 }
   export const onCheckoutPage = new CheckoutPage();

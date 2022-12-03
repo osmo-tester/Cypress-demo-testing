@@ -34,8 +34,7 @@ describe('Registration', () => {
   it(`#4 tests duplicated email can't be registered`, () => {
     onLoginPage.logout();
     onLoginPage.registerNewUser();
-    cy.contains('The email address is already in use by another account.')
-      .should('be.visible');
+    onLoginPage.confirmRegistration();
   })
 });
 
@@ -49,9 +48,9 @@ describe('Shopping cart/Checkout', () => {
   it(`#6 test that the shopping cart is cleared after user logged out`, ()=>{
     onLoginPage.login();
     onMainPage.addProductToCart("macbook Retina 13.3' ME662 (2013)");
-    cy.contains('.btn', 'Checkout').should('contain', '1 ($ 2399)');
+   onMainPage.confirmCheckoutInfo();
     onLoginPage.logout();
-    cy.contains('.btn', 'Checkout').should('contain', '0 ($ 0)');
+    onMainPage.confirmCheckoutInfo();
   });
 
   it(`#7 tests that multipple products can be added to the cart`, () => {
@@ -70,12 +69,12 @@ describe('Shopping cart/Checkout', () => {
     onCheckoutPage.checkProductIsNotInCart("macbook Retina 13.3' ME662 (2013)");
   });
 
-  it(`#9 tests that order can be succesfully checkout`, () => {
+  it.only(`#9 tests that order can be succesfully checkout`, () => {
     onLoginPage.login();
     onMainPage.addProductToCart("macbook Retina 13.3' ME662 (2013)");
     onMainPage.openCart();
     onCheckoutPage.checkoutCart();
-    cy.contains('Your order has been successfully processed!').should('be.visible');
+    onCheckoutPage.confirmSuccessfullOrder();
   });
 
   // This test should fall, as expected
