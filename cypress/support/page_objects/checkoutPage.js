@@ -13,15 +13,16 @@ export class CheckoutPage {
   };
 
   checkoutCart() {
+
     cy.get('#cart')
-    .contains('Checkout')
-    .click();
+      .contains('Checkout')
+      .click();
   };
 
   removeProduct() {
     cy.get('.fa-trash-o')
-    .first()
-    .click();
+      .first()
+      .click();
   };
 }
   export const onCheckoutPage = new CheckoutPage();

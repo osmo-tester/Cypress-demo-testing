@@ -5,11 +5,12 @@ export class MainPage {
     .parent('.card-title')
     .siblings('.row')
     .children('.col-6')
-    .contains('Add to cart').click();
+    .contains('Add to cart').click()
+    cy.wait(3000)
   }
 
   openCart() {
-    cy.contains('Checkout').click();
+    cy.contains('Checkout').click()
   }
 }
 
