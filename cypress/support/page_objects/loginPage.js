@@ -21,13 +21,23 @@ export class LoginPage {
   logout() {
     cy.get('#navbarTop').then(navbarTop =>{
       if(navbarTop){
-        cy.contains('Login').should('be.visible')
-      }else{
         cy.contains('Logout '+(username))
-        .click()
-        .and('be.visible', 'Login')
+          .click()
+      }else{
+        cy.contains('Login') .and('be.visible', 'Login')
       }
     })
-  }
+  };
+
+  loginPageIsOpened() {
+    cy.contains('Logout').should('be.visible')
+  };
+
+  duplicatedAdderessNotification() {
+    cy.contains('The email address is already in use by another account.')
+      .should('be.visible')
+  };
+
+
 };
 export const onLoginPage = new LoginPage();
