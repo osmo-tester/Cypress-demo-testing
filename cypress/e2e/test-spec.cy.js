@@ -13,30 +13,27 @@ describe('API tests', ()=>{
     cy.request("https://vuejs-shopping-cart.coddeine.com/").then((result) => {
       expect(result).to.have.property("status", 200)
     })
-  })
+  });
 });  
 
 describe('Registration', () => {
-  it(`#2 tests duplicated email can't be registered`, () => {
+  it(`#2 tests that the user is able to be registered`, () => {
+    onLoginPage.registerNewUser();
+    onLoginPage.confirmRegistration();
+  });
+
+  it(`#3 tests that duplicated email can't be registered`, () => {
     onLoginPage.registerNewUser();
     onLoginPage.duplicatedAdderessNotification();
-  })
+  });
 });  
 
 describe('Login', () => {
-  it(`#3 tests that user can login with valid credentials`, () => {
+  it(`#4 tests that user is able login with valid credentials`, () => {
     onLoginPage.login();
     onLoginPage.loginPageIsOpened();
-  })
+  });
 });  
-
-describe('Registration', () => {
-  it(`#4 tests duplicated email can't be registered`, () => {
-    onLoginPage.logout();
-    onLoginPage.registerNewUser();
-    onLoginPage.confirmRegistration();
-  })
-});
 
 describe('Shopping cart/Checkout', () => {
   it(`#5 tests that product can be added to the cart`, () => {
@@ -45,7 +42,7 @@ describe('Shopping cart/Checkout', () => {
     onCheckoutPage.checkProductIsInCart("macbook Retina 13.3' ME662 (2013)");
   });
 
-  it(`#6 test that the shopping cart is cleared after user logged out`, ()=>{
+  it(`#6 tests that the shopping cart is cleared after user logged out`, ()=>{
     onLoginPage.login();
     onMainPage.addProductToCart("macbook Retina 13.3' ME662 (2013)");
    onMainPage.confirmCheckoutInfo();
@@ -69,7 +66,7 @@ describe('Shopping cart/Checkout', () => {
     onCheckoutPage.checkProductIsNotInCart("macbook Retina 13.3' ME662 (2013)");
   });
 
-  it.only(`#9 tests that order can be succesfully checkout`, () => {
+  it(`#9 tests that order can be succesfully checkout`, () => {
     onLoginPage.login();
     onMainPage.addProductToCart("macbook Retina 13.3' ME662 (2013)");
     onMainPage.openCart();
