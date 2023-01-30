@@ -36,8 +36,8 @@ describe('Login', () => {
 });
 
 describe('Shopping cart/Checkout', () => {
-  it.only(`#5 tests that product can be added to the cart`, () => {
-    onMainPage.addProductToCart("macbook Retina 13.3' ME669 (2013)");
+  it(`#5 tests that product can be added to the cart`, () => {
+    onMainPage.addProductToCart("macbook Retina 13.3' ME662 (2013)");
     onMainPage.openCart();
     onCheckoutPage.checkProductIsInCart("macbook Retina 13.3' ME662 (2013)");
   });
